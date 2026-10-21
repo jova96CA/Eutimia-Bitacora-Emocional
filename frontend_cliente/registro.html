@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Crear cuenta · Bitácora</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <main class="card">
+        <h1>Crear cuenta</h1>
+        <form id="form"><label>Nombre<input name="nombre" required></label><label>Correo<input name="email" type="email"
+                    required></label><label>Contraseña<input name="password" type="password"
+                    required></label><label>Confirmar contraseña<input name="password2" type="password"
+                    required></label><button>Crear cuenta</button>
+            <p id="error" role="alert"></p>
+        </form><a href="login.html">Ya tengo cuenta</a>
+        <footer>Esta herramienta no sustituye atención profesional.</footer>
+    </main>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
