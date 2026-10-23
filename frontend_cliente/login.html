@@ -1,25 +1,29 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Entrar · Bitácora</title>
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
+    <link rel="icon" href="img/logo-eutimia.png" />
+    <link rel="stylesheet" href="css/fuentes.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
 
-<body>
+  <body class="pagina-acceso">
     <main class="card">
-        <h1>Bitácora</h1>
-        <p>Registra cómo te sientes, día a día.</p>
-        <form id="form"><label>Correo<input name="email" type="email" required></label><label>Contraseña<input
-                    name="password" type="password" required></label><button>Iniciar sesión</button>
-            <p id="error" role="alert"></p>
-        </form><a href="registro.html">Crear cuenta</a>
-        <footer>Esta herramienta no sustituye atención profesional.</footer>
+      <h1>Bitácora</h1>
+      <p>Registra cómo te sientes, día a día.</p>
+      <form id="form">
+        <label>Correo<input name="email" type="email" required /></label
+        ><label
+          >Contraseña<input name="password" type="password" required /></label
+        ><button>Iniciar sesión</button>
+        <p id="error" role="alert"></p>
+      </form>
+      <a href="registro.html">Crear cuenta</a>
+      <footer>Esta herramienta no sustituye atención profesional.</footer>
     </main>
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
-</body>
-
+  </body>
 </html>

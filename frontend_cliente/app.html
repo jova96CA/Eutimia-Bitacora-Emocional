@@ -1,61 +1,146 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Bitácora</title>
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
+    <link rel="icon" href="img/logo-eutimia.png" />
+    <link rel="stylesheet" href="css/fuentes.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
 
-<body>
-    <header><strong>Bitácora</strong>
-        <nav><a href="#registrar">Registrar</a><a href="#historial">Historial</a><a
-                href="#estadisticas">Estadísticas</a></nav><button id="salir">Cerrar sesión</button>
+  <body class="pagina-app">
+    <header>
+      <span class="marca"
+        ><img src="img/logo-eutimia.png" alt="" width="28" height="28" /><strong
+          >Bitácora</strong
+        ></span
+      >
+      <nav id="menu" aria-label="Secciones">
+        <a href="#registrar" data-vista="registrar" aria-current="page"
+          >Registrar</a
+        >
+        <a href="#historial" data-vista="historial">Historial</a>
+        <a href="#estadisticas" data-vista="estadisticas">Estadísticas</a>
+      </nav>
+      <div class="usuario">
+        <span id="nombre-usuario"></span>
+        <button
+          type="button"
+          id="avatar-btn"
+          class="avatar"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="menu-usuario"
+          aria-label="Menú de usuario"
+        >
+          <img id="avatar-img" class="oculto" alt="Tu foto" />
+          <svg
+            id="avatar-icono"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg>
+        </button>
+        <div id="menu-usuario" class="menu-usuario" hidden>
+          <button type="button" id="cambiar-foto">Cambiar foto</button>
+          <button type="button" id="quitar-foto" class="oculto">
+            Quitar foto
+          </button>
+          <button type="button" id="salir">Cerrar sesión</button>
+        </div>
+        <input type="file" id="archivo-foto" accept="image/*" hidden />
+      </div>
     </header>
     <main>
-        <aside id="alerta" hidden>Hemos notado que has tenido días difíciles. ¿Quieres ver recursos de apoyo? <button
-                id="recursos">Ver recursos</button><button id="cerrar-alerta">Cerrar</button></aside>
-        <section id="registrar" class="card">
-            <h1 id="saludo">Registrar estado de ánimo</h1>
-            <form id="registro"><label>Fecha<input id="fecha" name="fecha" type="date"
-                        required></label><label>Intensidad <span id="numero">5</span><input id="intensidad"
-                        name="intensidad" type="range" min="1" max="10" value="5"></label><label>Categoría</label>
-                <div id="categorias" role="group" aria-label="Categoría del estado de ánimo"><button type="button"
-                        class="chip activo" data-cat="ansiedad">Ansiedad</button><button type="button" class="chip"
-                        data-cat="tristeza">Tristeza</button><button type="button" class="chip"
-                        data-cat="estres">Estrés</button><button type="button" class="chip"
-                        data-cat="calma">Calma</button><button type="button" class="chip"
-                        data-cat="alegria">Alegría</button><input type="hidden" name="categoria" value="ansiedad"></div>
-                <label>¿Quieres agregar algo?<textarea name="texto_libre" maxlength="200"></textarea><small
-                        id="contador">0/200</small></label><button>Guardar registro</button>
-            </form>
-            <p id="resultado" aria-live="polite"></p>
-            <p id="racha"></p>
-        </section>
-        <section id="historial" class="card">
-            <h2>Historial</h2>
-            <div id="lista"></div><button id="mas">Cargar más</button>
-        </section>
-        <section id="estadisticas" class="card">
-            <h2>Estadísticas</h2><label>Periodo<select id="dias">
-                    <option>7</option>
-                    <option>30</option>
-                </select></label>
-            <div id="stats"></div>
-            <div id="grafica"></div>
-        </section>
-        <dialog id="modal">
-            <h2>Recursos de apoyo</h2>
-            <div id="recursos-lista"></div><button id="cerrar-modal">Cerrar</button>
-        </dialog>
-        <footer>Esta herramienta no sustituye atención profesional.</footer>
+      <aside id="alerta" hidden>
+        Hemos notado que has tenido días difíciles. ¿Quieres ver recursos de
+        apoyo? <button id="recursos">Ver recursos</button
+        ><button id="cerrar-alerta">Cerrar</button>
+      </aside>
+      <section id="registrar" class="card">
+        <p id="fecha-larga" class="fecha-larga"></p>
+        <h1 id="saludo">¿Cómo te sientes hoy?</h1>
+        <form id="registro">
+          <label
+            >Fecha<input id="fecha" name="fecha" type="date" required /></label
+          ><label
+            >Intensidad <span id="numero">5</span
+            ><input
+              id="intensidad"
+              name="intensidad"
+              type="range"
+              min="1"
+              max="10"
+              value="5" /></label
+          ><label>Categoría</label>
+          <div
+            id="categorias"
+            role="group"
+            aria-label="Categoría del estado de ánimo"
+          >
+            <button type="button" class="chip activo" data-cat="ansiedad">
+              Ansiedad</button
+            ><button type="button" class="chip" data-cat="tristeza">
+              Tristeza</button
+            ><button type="button" class="chip" data-cat="estres">Estrés</button
+            ><button type="button" class="chip" data-cat="calma">Calma</button
+            ><button type="button" class="chip" data-cat="alegria">
+              Alegría</button
+            ><input type="hidden" name="categoria" value="ansiedad" />
+          </div>
+          <label
+            >¿Quieres contarnos más sobre tu día? (opcional)
+            <div class="cuaderno">
+              <span id="fecha-cuaderno" class="cuaderno-fecha"></span>
+              <textarea
+                name="texto_libre"
+                maxlength="200"
+                placeholder="Querido diario…"
+              ></textarea>
+              <small id="contador">0/200</small>
+            </div></label
+          ><button>Guardar registro</button>
+        </form>
+        <p id="resultado" aria-live="polite"></p>
+        <p id="racha"></p>
+      </section>
+      <section id="historial" class="card">
+        <h2>Historial</h2>
+        <div id="lista"></div>
+        <button id="mas">Cargar más</button>
+      </section>
+      <section id="estadisticas" class="card">
+        <h2>Estadísticas</h2>
+        <label
+          >Periodo<select id="dias">
+            <option>7</option>
+            <option>30</option>
+          </select></label
+        >
+        <div id="stats"></div>
+        <div id="grafica"></div>
+      </section>
+      <dialog id="modal">
+        <h2>Recursos de apoyo</h2>
+        <div id="recursos-lista"></div>
+        <button id="cerrar-modal">Cerrar</button>
+      </dialog>
+      <footer>Esta herramienta no sustituye atención profesional.</footer>
     </main>
     <script src="js/api.js"></script>
     <script src="js/alerta.js"></script>
     <script src="js/registrar.js"></script>
     <script src="js/historial.js"></script>
     <script src="js/estadisticas.js"></script>
-</body>
-
+    <script src="js/vistas.js"></script>
+  </body>
 </html>

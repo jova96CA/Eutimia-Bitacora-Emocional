@@ -1,51 +1,59 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Panel · Bitácora</title>
-    <link rel="stylesheet" href="css/admin.css">
-</head>
+    <link rel="icon" href="img/logo-eutimia.png" />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
 
-<body>
+  <body>
     <aside>
-        <h1>Bitácora</h1>
-        <nav><a href="#usuarios">Usuarios</a><a href="#sesiones">Autenticación y sesiones</a><a
-                href="#analizador">Analizador lingüístico</a><a href="#ia">Integración con IA</a><a
-                href="#auditoria">Auditoría</a></nav><button id="salir">Cerrar sesión</button>
-        <p>Esta herramienta no sustituye atención profesional.</p>
+      <h1>Bitácora</h1>
+      <nav>
+        <a href="#usuarios">Usuarios</a
+        ><a href="#sesiones">Autenticación y sesiones</a
+        ><a href="#analizador">Analizador lingüístico</a
+        ><a href="#ia">Integración con IA</a><a href="#auditoria">Auditoría</a>
+      </nav>
+      <button id="salir">Cerrar sesión</button>
+      <p>Esta herramienta no sustituye atención profesional.</p>
     </aside>
     <main>
-        <section id="usuarios">
-            <h2>Usuarios</h2><input id="buscar" placeholder="Buscar nombre o correo"><button id="crear">Crear
-                cuenta</button>
-            <div id="lista-usuarios"></div>
-        </section>
-        <section id="sesiones">
-            <h2>Autenticación y sesiones</h2>
-            <p>No se muestran contraseñas, claves, cookies ni tokens completos.</p>
-            <div id="lista-sesiones"></div>
-        </section>
-        <section id="analizador">
-            <h2>Tokens léxicos</h2>
-            <div id="lista-analizador"></div>
-        </section>
-        <section id="ia">
-            <h2>Integración con IA</h2>
-            <pre>{"etiqueta_sentimiento":"negativo","confianza":0.78,"patron_riesgo":false,"explicacion_breve":"..."}</pre>
-            <div id="lista-ia"></div>
-        </section>
-        <section id="auditoria">
-            <h2>Auditoría</h2>
-            <div id="lista-auditoria"></div>
-        </section>
+      <section id="usuarios">
+        <h2>Usuarios</h2>
+        <input id="buscar" placeholder="Buscar nombre o correo" /><button
+          id="crear"
+        >
+          Crear cuenta
+        </button>
+        <div id="lista-usuarios"></div>
+      </section>
+      <section id="sesiones">
+        <h2>Autenticación y sesiones</h2>
+        <p>No se muestran contraseñas, claves, cookies ni tokens completos.</p>
+        <div id="lista-sesiones"></div>
+      </section>
+      <section id="analizador">
+        <h2>Tokens léxicos</h2>
+        <div id="lista-analizador"></div>
+      </section>
+      <section id="ia">
+        <h2>Integración con IA</h2>
+        <pre>
+{"etiqueta_sentimiento":"negativo","confianza":0.78,"patron_riesgo":false,"explicacion_breve":"..."}</pre>
+        <div id="lista-ia"></div>
+      </section>
+      <section id="auditoria">
+        <h2>Auditoría</h2>
+        <div id="lista-auditoria"></div>
+      </section>
     </main>
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/usuarios.js"></script>
     <script src="js/monitor.js"></script>
     <script src="js/auditoria.js"></script>
-</body>
-
+  </body>
 </html>

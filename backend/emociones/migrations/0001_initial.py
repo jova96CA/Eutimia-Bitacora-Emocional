@@ -16,22 +16,61 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Registro',
+            name="Registro",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('fecha', models.DateField()),
-                ('intensidad', models.PositiveSmallIntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(10)])),
-                ('categoria', models.CharField(choices=[('ansiedad', 'Ansiedad'), ('tristeza', 'Tristeza'), ('estres', 'Estrés'), ('calma', 'Calma'), ('alegria', 'Alegría')], max_length=20)),
-                ('texto_libre', models.CharField(blank=True, max_length=200)),
-                ('ia_etiqueta', models.CharField(blank=True, max_length=10)),
-                ('ia_confianza', models.FloatField(blank=True, null=True)),
-                ('ia_patron_riesgo', models.BooleanField(default=False)),
-                ('creado_en', models.DateTimeField(auto_now_add=True)),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='registros', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("fecha", models.DateField()),
+                (
+                    "intensidad",
+                    models.PositiveSmallIntegerField(
+                        validators=[
+                            django.core.validators.MinValueValidator(1),
+                            django.core.validators.MaxValueValidator(10),
+                        ]
+                    ),
+                ),
+                (
+                    "categoria",
+                    models.CharField(
+                        choices=[
+                            ("ansiedad", "Ansiedad"),
+                            ("tristeza", "Tristeza"),
+                            ("estres", "Estrés"),
+                            ("calma", "Calma"),
+                            ("alegria", "Alegría"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("texto_libre", models.CharField(blank=True, max_length=200)),
+                ("ia_etiqueta", models.CharField(blank=True, max_length=10)),
+                ("ia_confianza", models.FloatField(blank=True, null=True)),
+                ("ia_patron_riesgo", models.BooleanField(default=False)),
+                ("creado_en", models.DateTimeField(auto_now_add=True)),
+                (
+                    "usuario",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="registros",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'ordering': ['-fecha'],
-                'constraints': [models.UniqueConstraint(fields=('usuario', 'fecha'), name='un_registro_por_dia')],
+                "ordering": ["-fecha"],
+                "constraints": [
+                    models.UniqueConstraint(
+                        fields=("usuario", "fecha"), name="un_registro_por_dia"
+                    )
+                ],
             },
         ),
     ]

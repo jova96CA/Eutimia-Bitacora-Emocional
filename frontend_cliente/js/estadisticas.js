@@ -1,1 +1,49 @@
-async function cargarStats(){const box=document.querySelector('#stats');if(!box)return;try{const d=await api(`/estadisticas/?dias=${document.querySelector('#dias').value}`);box.textContent=`Promedio: ${d.intensidad_promedio??'—'} · Más frecuente: ${d.categoria_frecuente||'—'} · Días este mes: ${d.dias_registrados_mes} · Tendencia: ${d.tendencia}`;const area=document.querySelector('#grafica');area.replaceChildren();const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 300 100');svg.setAttribute('role','img');svg.setAttribute('aria-label','Gráfica de intensidad');const color=d.tendencia==='positiva'?'#8FB6A6':d.tendencia==='negativa'?'#D97D6C':'#E3A857';let run=[];const dibujar=()=>{if(run.length){const line=document.createElementNS(svg.namespaceURI,'polyline');line.setAttribute('points',run.join(' '));line.setAttribute('fill','none');line.setAttribute('stroke',color);line.setAttribute('stroke-width','3');svg.append(line);run=[]}};d.serie.forEach((x,i)=>{if(x.intensidad===null){dibujar();return}run.push(`${i*280/Math.max(d.serie.length-1,1)+10},${90-x.intensidad*8}`)});dibujar();area.append(svg)}catch{}}if(document.querySelector('#stats')){document.querySelector('#dias').onchange=cargarStats;cargarStats()}
+async function cargarStats() {
+  const box = document.querySelector("#stats");
+  if (!box) return;
+  try {
+    const d = await api(
+      `/estadisticas/?dias=${document.querySelector("#dias").value}`,
+    );
+    box.textContent = `Promedio: ${d.intensidad_promedio ?? "—"} · Más frecuente: ${d.categoria_frecuente || "—"} · Días este mes: ${d.dias_registrados_mes} · Tendencia: ${d.tendencia}`;
+    const area = document.querySelector("#grafica");
+    area.replaceChildren();
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "0 0 300 100");
+    svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", "Gráfica de intensidad");
+    const color =
+      d.tendencia === "positiva"
+        ? "#8FB6A6"
+        : d.tendencia === "negativa"
+          ? "#D97D6C"
+          : "#E3A857";
+    let run = [];
+    const dibujar = () => {
+      if (run.length) {
+        const line = document.createElementNS(svg.namespaceURI, "polyline");
+        line.setAttribute("points", run.join(" "));
+        line.setAttribute("fill", "none");
+        line.setAttribute("stroke", color);
+        line.setAttribute("stroke-width", "3");
+        svg.append(line);
+        run = [];
+      }
+    };
+    d.serie.forEach((x, i) => {
+      if (x.intensidad === null) {
+        dibujar();
+        return;
+      }
+      run.push(
+        `${(i * 280) / Math.max(d.serie.length - 1, 1) + 10},${90 - x.intensidad * 8}`,
+      );
+    });
+    dibujar();
+    area.append(svg);
+  } catch {}
+}
+if (document.querySelector("#stats")) {
+  document.querySelector("#dias").onchange = cargarStats;
+  cargarStats();
+}

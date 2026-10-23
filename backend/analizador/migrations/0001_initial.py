@@ -7,31 +7,56 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AnalisisLog',
+            name="AnalisisLog",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('creado_en', models.DateTimeField(auto_now_add=True)),
-                ('valido', models.BooleanField(default=False)),
-                ('num_tokens', models.IntegerField(default=0)),
-                ('tipos_token', models.JSONField(default=dict)),
-                ('estructura', models.JSONField(default=dict)),
-                ('codigos_error', models.JSONField(default=list)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("creado_en", models.DateTimeField(auto_now_add=True)),
+                ("valido", models.BooleanField(default=False)),
+                ("num_tokens", models.IntegerField(default=0)),
+                ("tipos_token", models.JSONField(default=dict)),
+                ("estructura", models.JSONField(default=dict)),
+                ("codigos_error", models.JSONField(default=list)),
             ],
         ),
         migrations.CreateModel(
-            name='SolicitudIA',
+            name="SolicitudIA",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('creado_en', models.DateTimeField(auto_now_add=True)),
-                ('estado', models.CharField(choices=[('pendiente', 'Pendiente'), ('completada', 'Completada'), ('fallida', 'Fallida')], max_length=20)),
-                ('tiempo_ms', models.IntegerField(blank=True, null=True)),
-                ('esquema_valido', models.BooleanField(blank=True, null=True)),
-                ('error_tipo', models.CharField(blank=True, max_length=20)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("creado_en", models.DateTimeField(auto_now_add=True)),
+                (
+                    "estado",
+                    models.CharField(
+                        choices=[
+                            ("pendiente", "Pendiente"),
+                            ("completada", "Completada"),
+                            ("fallida", "Fallida"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("tiempo_ms", models.IntegerField(blank=True, null=True)),
+                ("esquema_valido", models.BooleanField(blank=True, null=True)),
+                ("error_tipo", models.CharField(blank=True, max_length=20)),
             ],
         ),
     ]

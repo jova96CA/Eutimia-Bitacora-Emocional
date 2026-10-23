@@ -1,1 +1,8 @@
-MENSAJES = {"negativo": "Tu texto refleja un día pesado. Gracias por escribirlo.", "neutro": "Gracias por hacer una pausa y registrar cómo te sientes.", "positivo": "Tu texto refleja un momento agradable. Gracias por compartirlo.", "no_disponible": "Tu registro se guardó. El análisis del texto no estuvo disponible esta vez."}
+MENSAJES = {
+    "negativo": "Tu texto refleja un día pesado. Gracias por escribirlo.",
+    "neutro": "Gracias por hacer una pausa y registrar cómo te sientes.",
+    "positivo": "Tu texto refleja un momento agradable. Gracias por compartirlo.",
+    "no_disponible": (
+        "Tu registro se guardó. " "El análisis del texto no estuvo disponible esta vez."
+    ),
+}

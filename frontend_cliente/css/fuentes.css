@@ -1,0 +1,30 @@
+/* Fuentes alojadas en el propio proyecto (funcionan sin internet).
+   Fraunces y Work Sans: licencia SIL OFL. Caveat: licencia SIL OFL. */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fuentes/fraunces-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fuentes/work-sans-latin-wght-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fuentes/caveat-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Caveat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fuentes/caveat-latin-700-normal.woff2") format("woff2");
+}

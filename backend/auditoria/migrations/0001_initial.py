@@ -7,21 +7,48 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='EventoAuditoria',
+            name="EventoAuditoria",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('creado_en', models.DateTimeField(auto_now_add=True)),
-                ('categoria', models.CharField(choices=[('sesion', 'Sesión'), ('admin', 'Administración'), ('sistema', 'Sistema')], max_length=20)),
-                ('accion', models.CharField(max_length=40)),
-                ('resultado', models.CharField(choices=[('ok', 'Correcto'), ('denegado', 'Denegado'), ('fallo', 'Fallo')], max_length=20)),
-                ('objetivo_id', models.IntegerField(blank=True, null=True)),
-                ('referencia', models.CharField(blank=True, max_length=50)),
-                ('detalle', models.CharField(blank=True, max_length=200)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("creado_en", models.DateTimeField(auto_now_add=True)),
+                (
+                    "categoria",
+                    models.CharField(
+                        choices=[
+                            ("sesion", "Sesión"),
+                            ("admin", "Administración"),
+                            ("sistema", "Sistema"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("accion", models.CharField(max_length=40)),
+                (
+                    "resultado",
+                    models.CharField(
+                        choices=[
+                            ("ok", "Correcto"),
+                            ("denegado", "Denegado"),
+                            ("fallo", "Fallo"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("objetivo_id", models.IntegerField(blank=True, null=True)),
+                ("referencia", models.CharField(blank=True, max_length=50)),
+                ("detalle", models.CharField(blank=True, max_length=200)),
             ],
         ),
     ]

@@ -1,1 +1,209 @@
-*{box-sizing:border-box}body{margin:0;background:#F7F8F6;color:#26332F;font:15px Arial,sans-serif;display:flex}aside{width:240px;min-height:100vh;background:#232D28;color:#D7DED9;padding:24px;position:sticky;top:0}aside a{display:block;color:inherit;padding:10px 0}main{padding:24px;max-width:1100px;flex:1}section{background:white;padding:22px;border-radius:12px;margin-bottom:20px;scroll-margin-top:20px}button{background:#4F7A64;color:white;border:0;border-radius:6px;padding:10px 14px;cursor:pointer}input{padding:10px;border:1px solid #ccd3cd;border-radius:6px}label{display:block;margin:12px 0}table{border-collapse:collapse;width:100%;margin-top:12px}td,th{text-align:left;padding:9px;border-bottom:1px solid #e1e5e1}pre{background:#232D28;color:#D7DED9;padding:14px}footer{margin-top:30px}@media(max-width:700px){body{display:block}aside{width:auto;min-height:auto;position:static}main{padding:12px}}
+/* ==========================================
+   EUTIMIA - Panel de administración
+   Paleta: #faf8f5 (crema), #0d2b45 (azul), #205047 (verde azulado),
+   #dfa283 (coral), #bfa37a (dorado)
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f5efe4;
+  background: linear-gradient(160deg, #faf8f5 0%, #f0ebe1 100%) fixed;
+  color: #0d2b45;
+  font:
+    15px Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  display: flex;
+}
+aside {
+  width: 240px;
+  min-height: 100vh;
+  background: #1c3d35;
+  color: #f5f0e6;
+  padding: 24px;
+  position: sticky;
+  top: 0;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+}
+aside a {
+  display: block;
+  color: #dfa283;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+aside a:hover {
+  color: #ffffff;
+}
+aside button {
+  background: #dfa283;
+  color: #0d2b45;
+}
+aside button:hover {
+  background: #e9b99f;
+}
+main {
+  padding: 24px;
+  max-width: 1100px;
+  flex: 1;
+}
+section {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(223, 162, 131, 0.2);
+  box-shadow: 0 4px 16px rgba(13, 43, 69, 0.05);
+  margin-bottom: 20px;
+  scroll-margin-top: 20px;
+}
+button {
+  background: #205047;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+button:hover {
+  background: #153831;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #bfa37a;
+  outline-offset: 2px;
+}
+input {
+  padding: 10px;
+  border: 1.5px solid #d4ded9;
+  border-radius: 6px;
+  color: #0d2b45;
+  background: #fdfdfd;
+}
+input:focus {
+  border-color: #205047;
+  box-shadow: 0 0 0 3px rgba(32, 80, 71, 0.15);
+  background: #ffffff;
+}
+label {
+  display: block;
+  margin: 12px 0;
+  color: #1a4d40;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+}
+td,
+th {
+  text-align: left;
+  padding: 9px;
+  border-bottom: 1px solid #e2e8f0;
+}
+th {
+  background-color: rgba(32, 80, 71, 0.05);
+  color: #205047;
+}
+pre {
+  background: #1c3d35;
+  color: #f5f0e6;
+  padding: 14px;
+}
+footer {
+  margin-top: 30px;
+  color: #5b6b78;
+}
+@media (max-width: 700px) {
+  body {
+    display: block;
+  }
+  aside {
+    width: auto;
+    min-height: auto;
+    position: static;
+  }
+  main {
+    padding: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================
+   Pantalla de acceso (solo login.html)
+   Se activa con <body class="pagina-acceso">
+   y no afecta al panel.
+   ========================================== */
+body.pagina-acceso {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #f5efe4 url("../img/fondo-eutimia.jpg") right top / cover
+    no-repeat;
+}
+body.pagina-acceso main {
+  flex: 0 1 420px;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 48px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(223, 162, 131, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(13, 43, 69, 0.08);
+}
+body.pagina-acceso h1 {
+  margin: 0 0 24px;
+  font-size: 26px;
+  text-align: center;
+  color: #0d2b45;
+}
+body.pagina-acceso label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+body.pagina-acceso input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+}
+body.pagina-acceso button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(32, 80, 71, 0.2);
+}
+body.pagina-acceso #error {
+  margin: 12px 0 0;
+  text-align: center;
+  color: #9b3d2e;
+}
+body.pagina-acceso footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #5b6b78;
+}
+@media (max-width: 700px) {
+  body.pagina-acceso main {
+    padding: 30px 24px;
+  }
+}
